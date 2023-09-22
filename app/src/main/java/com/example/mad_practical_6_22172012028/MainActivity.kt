@@ -9,17 +9,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var button:Button = findViewById(R.id.floatingActionButton)
-        var button2:Button = findViewById(R.id.floatingActionButton3)
-        button.setOnClickListener { playpause() }
+        val button:Button=findViewById(R.id.fb1)
+        button.setOnClickListener { playpause()}
+        val button2:Button=findViewById(R.id.fb2)
         button2.setOnClickListener { stop() }
     }
-    fun playpause()
-    {
-        Intent(applicationContext,MyService::class.java).putExtra(MyService.PLAYERKEY,MyService.PLAYERVALUE).apply{ startService(this) }
+    fun playpause(){
+        Intent(applicationContext,MyService::class.java).putExtra(MyService.PLAYERKEY,MyService.PLAYERVALUE).apply { startService(this) }
     }
-    fun stop()
-    {
-        Intent(applicationContext,MyService::class.java).putExtra(MyService.PLAYERKEY,MyService.PLAYERVALUE).apply { stopService(this) }
+    fun stop(){
+        Intent(applicationContext,MyService::class.java).putExtra(MyService.PLAYERKEY,MyService.PLAYERVALUE).apply { startService(this) }
     }
 }
